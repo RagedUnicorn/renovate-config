@@ -2,8 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Shared Renovate preset for the RagedUnicorn docker-* image repositories. ignorePaths intentionally overrides the :ignoreModulesAndTests preset from config:recommended: test/ must stay visible so the metadata-test custom manager can update test/<tool>_metadata_test.yml",
   "extends": [
-    "config:recommended",
-    "helpers:pinGitHubActionDigests"
+    "config:recommended"
   ],
   "timezone": "Europe/Zurich",
   "schedule": [
@@ -41,13 +40,6 @@
       ],
       "minimumReleaseAge": "3 days",
       "automerge": true
-    },
-    {
-      "description": "Pin the Dockerfile FROM base images to their digest so a re-pushed tag cannot change build inputs unseen. Scoped to the dockerfile manager so the base.name label and metadata test keep the plain tag",
-      "matchManagers": [
-        "dockerfile"
-      ],
-      "pinDigests": true
     }
   ],
   "customManagers": [
