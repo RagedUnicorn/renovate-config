@@ -19,6 +19,7 @@ Add repo-specific `packageRules` and `customManagers` next to the `extends` line
 
 - `config:recommended`, a weekly Monday schedule (Europe/Zurich) and the `dependencies` / `renovate` labels
 - `ignorePaths` for the compose files and `examples/**`. This replaces the `:ignoreModulesAndTests` default so `test/` stays visible
+- Supply-chain pinning: GitHub Actions pinned to full commit SHAs with a version comment (`helpers:pinGitHubActionDigests`) and the `Dockerfile` `FROM` base images pinned to their digest (scoped to the `dockerfile` manager, so the label and metadata test keep the plain tag)
 - One `alpine` group covering the `FROM` line, the `base.name` OCI label and the metadata test, with automerge for minor and patch updates after a three day release age
 - Custom managers for:
   - `# renovate: datasource=... depName=... [versioning=...]` comments before `ARG` lines in the `Dockerfile`
